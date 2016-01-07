@@ -12,7 +12,11 @@ var fs = require('fs');
  */
 
 exports.stat = function (filename) {
-
+  return function (callback) {
+    fs.stat(filename, function (err, stats) {
+      callback(err, stats);
+    });
+  }
 };
 
 /**
@@ -32,5 +36,10 @@ exports.stat = function (filename) {
  */
 
 exports.exists = function (filename) {
-
+  return function (callback) {
+    fs.stat(filename, function (err, stat) {
+      if (err) callback(null, false);
+      else callback(null, true);
+    });
+  }
 };
