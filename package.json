@@ -26,6 +26,6 @@
     "mocha": "1"
   },
   "scripts": {
-    "test": "mocha --harmony-generators --reporter spec --bail */test.js"
+    "test": "mocha --reporter spec --bail */test.js"
   }
 }
